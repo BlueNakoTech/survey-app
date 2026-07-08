@@ -32,10 +32,24 @@ function Dashboard() {
           <h1 className="text-4xl font-bold">Pendataan Survei Paroki Dalem</h1>
 
           <p className="mt-3 text-blue-100 text-lg">
-            Kelola pembagian survei umat dengan mudah.
+            Pendataan ini bertujuan untuk mempermudah pengurus lingkungan di
+            Paroki Dalem, agar setiap pengurus dapat menentukan responden yang
+            akan mengisi survei
           </p>
 
-          <div className="flex gap-3">
+          <div className="mt-6 inline-flex items-center gap-3 bg-yellow-300 text-yellow-900 px-5 py-3 rounded-xl shadow-md">
+            <span className="text-2xl">📅</span>
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide">
+                Batas Pengisian Survei
+              </p>
+
+              <p className="text-lg font-bold">10 Juli 2026 | 23:59 WIB</p>
+            </div>
+          </div>
+
+          <div className="flex gap-3 mt-6 flex-wrap">
             <button
               onClick={() => setShowQR(true)}
               className="bg-white text-blue-600 px-5 py-3 rounded-xl shadow hover:bg-slate-100 flex items-center gap-2"
@@ -48,7 +62,7 @@ function Dashboard() {
               <button className="mt-8 bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-slate-100 transition">
                 <div className="flex items-center gap-2">
                   <Plus size={20} />
-                  Pendataan Baru
+                  Tambah Lingkungan
                 </div>
               </button>
             </Link>

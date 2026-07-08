@@ -10,6 +10,8 @@ import SurveyBadge from "../components/SurveyBadge";
 import formTemplate from "../data/formTemplate";
 import { createAssignment } from "../services/assignmentService";
 
+import lingkunganList from "../data/lingkunganList";
+
 function AssignmentForm() {
   const navigate = useNavigate();
 
@@ -78,6 +80,7 @@ function AssignmentForm() {
           <SectionCard title="Informasi Lingkungan">
             <InputField
               label="Nama Lingkungan"
+              list="lingkungan-list"
               value={formData.namaLingkungan}
               onChange={(e) =>
                 setFormData((prev) => ({
@@ -86,6 +89,12 @@ function AssignmentForm() {
                 }))
               }
             />
+
+            <datalist id="lingkungan-list">
+              {lingkunganList.map((nama) => (
+                <option key={nama} value={nama} />
+              ))}
+            </datalist>
           </SectionCard>
 
           {/* Sections */}

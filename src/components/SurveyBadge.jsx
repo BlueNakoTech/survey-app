@@ -1,32 +1,42 @@
-import surveys from "../data/surveys";
-import { ClipboardCheck } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import surveyLinks from "../data/surveyLinks";
 
 function SurveyBadge({ survey }) {
-  const colors = {
-    sinodalitas: "bg-blue-100 text-blue-700 border-blue-200",
+  const data = surveyLinks[survey];
 
-    fibb: "bg-green-100 text-green-700 border-green-200",
+  if (!data) return null;
+
+  const colors = {
+    sinodalitas: "bg-blue-100 text-blue-700 hover:bg-blue-200",
+
+    fibb: "bg-green-100 text-green-700 hover:bg-green-200",
   };
 
   return (
-    <div
+    <a
+      href={data.url}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`
         inline-flex
         items-center
-        gap-2
+        gap-1
         px-3
         py-2
         rounded-full
-        border
         text-sm
         font-medium
-        ${colors[survey] || "bg-gray-100 text-gray-700 border-gray-200"}
+        transition-all
+        duration-200
+        hover:scale-105
+        hover:shadow-md
+        ${colors[survey] || "bg-slate-100 text-slate-700 hover:bg-slate-200"}
       `}
     >
-      <ClipboardCheck size={15} />
+      {data.title}
 
-      {surveys[survey]}
-    </div>
+      <ExternalLink size={14} />
+    </a>
   );
 }
 
