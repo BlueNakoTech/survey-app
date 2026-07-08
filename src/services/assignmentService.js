@@ -79,3 +79,18 @@ export async function updateAssignmentMembers(
         members,
     });
 }
+
+export async function getDashboardSettings() {
+    const snapshot = await getDoc(doc(db, "settings", "dashboard"));
+
+    if (!snapshot.exists()) {
+        return {
+            title: "",
+            note: "",
+            deadline: "",
+            showDeadline: false,
+        };
+    }
+
+    return snapshot.data();
+}
