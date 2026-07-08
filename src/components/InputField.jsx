@@ -1,4 +1,4 @@
-function InputField({ label, value, onChange }) {
+function InputField({ label, value, onChange, ...props }) {
   return (
     <div className="mb-6">
       <label className="block font-semibold text-slate-700 mb-2">{label}</label>
@@ -20,6 +20,7 @@ function InputField({ label, value, onChange }) {
           focus:ring-blue-200
           focus:border-blue-500
         "
+        {...props}
       />
     </div>
   );
